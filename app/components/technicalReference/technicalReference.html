@@ -1,0 +1,9 @@
+<h3 class="text-center">Technical References</h3>
+<div class="technicalRef-wrapper">
+    <div ng-repeat="(technology, data) in items">
+        <div class="technology">{{technology}}</div>
+<ol class="circle-ordered-list" >
+    <li ng-repeat="site in data"><a target="_blank" href="{{site.siteUrl}}">{{site.siteName}}</a></li>
+</ol>
+</div>
+</div>

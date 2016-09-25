@@ -1,0 +1,23 @@
+<div class="js-app-wrapper">
+    <h3 class="text-center">pigLatin Translator</h3>
+<hr/>
+
+<form name="pigLatinForm" novalidate ng-submit="pigLatin.translate(pigLatin.userInput)">
+    <div class="form-group">
+        <label for="pl"> Translate English to pigLatin:</label>
+        <textarea ng-keyup="pigLatin.clear(pigLatin.userInput)" class="form-control" id="pl" ng-model="pigLatin.userInput" ng-required=true rows="10" cols="50" placeholder="Key in some words."></textarea>
+    </div>
+    <button type="submit" class="btn btn-success btn-md" ng-disabled="pigLatinForm.$invalid">Translate</button>
+    <button type="reset" class="btn btn-primary btn-md" ng-click="pigLatin.userInput='';pigLatin.showOutput=false;">Clear Text</button>
+
+    <div class="top-buffer" ng-show="pigLatin.showOutput" >
+        <div ng-show="pigLatin.translated.dictionary.length>0">
+            <div><strong>Words taken from pigLatin dictionary: </strong><br/>{{pigLatin.translated.dictionary.join(', ')}}</div>
+        </div>
+        <div class="top-buffer"><b>Note:</b> Hover on the words!</div>
+        <div class="well well-lg">
+            <span ng-repeat="(key,value) in pigLatin.translated.normal" class="translated-text" uib-popover="{{value.explanation}}" popover-trigger="mouseenter" popover-placement="auto top" popover-title="How is '{{key}}' translated?" data-message="{{value.explanation}}'">{{value.word}}</span>
+        </div>
+    </div>
+</form>
+</div>

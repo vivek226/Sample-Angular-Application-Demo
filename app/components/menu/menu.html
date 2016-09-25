@@ -1,0 +1,5 @@
+    <nav ng-controller="menuController as mc" class="text-uppercase text-center">
+        <!-- When a link in the menu is clicked, we set the active variable -->
+        <a ng-repeat="nav in mc.items" href="#{{nav.url}}" ng-class="{'active':mc.active === nav.url}" ng-click="mc.active=nav.url">{{nav.displayName}}</a>
+    </nav>
+
